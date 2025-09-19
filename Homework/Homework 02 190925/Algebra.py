@@ -8,6 +8,6 @@ def root2(a, b, c):
     
     return r1, r2
 
-print(root2(1, -3, 2))
-print(root2(1, 2, 1))    
+print(root2(1, -5, 6))
+print(root2(1, 4, 3))    
 print(root2(1, 1, 1))    
