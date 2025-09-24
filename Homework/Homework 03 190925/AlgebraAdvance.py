@@ -17,4 +17,4 @@ def root3(a, b, c, d):
     x3 = u*w.conjugate() + v*w - b_/3
     return (x1, x2, x3)
 
-print(root3(1, -6, 11, -6))
+print(root3(1, -4, 5, -2))
