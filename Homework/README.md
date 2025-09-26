@@ -2,7 +2,14 @@
 
 ## [Homework 1](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2001%20190925/Calculus.py)
 
+This task determine of derivative definition and the fundamental theorem of calculus.<br>
+The first part, we asked to solve the derivative approximation. By using h = 0.00001, at x=3, for f(x) = $x^{4}$, the result is 108.0005..., which is very close with the exact answer that is 108.<br>
 
+The second part, we asked to solve the integral approximation, with upper limit of integration is 3 and lower limit of integration is 0. The result for integral approximation of $x^{4}$ is 48.5959..., which is very close with the exact answer that is 48.6.<br>
+
+The last part, we asked to checking fundamental theorem of calculus. With using of x = 3, we can found that the r = 81.00..., which is very close with the exact answer that is f(3) = 81.<br>
+
+At the end, every calculation that python do was correct and always very close with the exact answer for the question.
 
 ## [Homework 2](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2002%20190925/Algebra.py)
 
