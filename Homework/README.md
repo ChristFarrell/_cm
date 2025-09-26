@@ -7,7 +7,7 @@
 ## [Homework 2]()
 
 The equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
-$$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
 ## [Homework 3]()
 
