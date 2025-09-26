@@ -33,7 +33,7 @@ The first step, we using normalization of formula, which make variable a will be
 b /= a; c /= a; d /= a
 ```
 
-The second step, we make depressed cubic, that will make result to remove x² term. We using formula $x = t - $\frac{b}{3}$$. This will makeBy the end, the formula will simplified as $t³ + pt + q = 0$.<br>
+The second step, we make depressed cubic, that will make result to remove x² term. We using formula $x = t - \frac{b}{3}$. This will makeBy the end, the formula will simplified as $t³ + pt + q = 0$.<br>
 
 The third step, we use discriminant. It will decide whether Δ > 0 ; Δ = 0 ; Δ < 0.<br>
 If Δ > 0 = one real root, two complex.<br>
