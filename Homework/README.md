@@ -13,7 +13,7 @@ At the end, every calculation that python do was correct and always very close w
 
 ## [Homework 2](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2002%20190925/Algebra.py)
 
-The equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
+This equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
 <br>
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$<br>
 
@@ -26,7 +26,36 @@ print(root2(1, 1, 1))  # x = -0.5 + 0.86j & -0.5 - 0.86j
 
 ## [Homework 3](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2003%20190925/AlgebraAdvance.py)
 
+This question is a cubic equation $ax³ + bx² + c + d = 0$. By this equation, we can sure that all of variable cannot be equal as 0.<br>
 
+The first step, we using normalization of formula, which make variable a will be 1.
+```python
+b /= a; c /= a; d /= a
+```
+
+The second step, we make depressed cubic, that will make result to remove x² term. We using formula $x = t - $\frac{b}{3}$$. This will makeBy the end, the formula will simplified as $t³ + pt + q = 0$.<br>
+
+The third step, we use discriminant. It will decide whether Δ > 0 ; Δ = 0 ; Δ < 0.<br>
+If Δ > 0 = one real root, two complex.<br>
+If Δ = 0 = multiple real roots (at least two equal).<br>
+If Δ < 0 = three distinct real roots.<br>
+
+The fourth step, we using Cardano’s cube roots from the depressed equation. The solution will be t = u + v.
+```python
+u = (-q/2 + cmath.sqrt(Δ))**(1/3)
+v = (-q/2 - cmath.sqrt(Δ))**(1/3)
+```
+
+At the end, it will be calculate the variable of t1, t2, t3. We also sahift back the answer to gives the actual solutions of the equation.
+```python
+return [t1 - b/3, t2 - b/3, t3 - b/3]
+```
+
+Here some of result the calculation of cubic equation.
+```python
+print(solve_cubic(1, -6, 11, -6)) # x = 3, 2, 1
+print(solve_cubic(1, -9, 26, -24)) # x = 4, 3, 2
+```
 
 ## [Homework 4](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2004%20190925/CaseOfAlgebra.py)
 

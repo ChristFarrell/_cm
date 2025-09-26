@@ -1,20 +1,29 @@
 import cmath
 
-def root3(a, b, c, d):
+def solve_cubic(a, b, c, d):
     if a == 0:
-        raise ValueError("a cannot be 0")
-    
-    b_, c_, d_ = b/a, c/a, d/a
-    p = c_ - b_**2/3
-    q = 2*b_**3/27 - b_*c_/3 + d_
+        raise ValueError("Not a cubic equation")
+
+    # Normalize
+    b /= a; c /= a; d /= a
+
+    # Depressed cubic: t^3 + pt + q = 0
+    p = c - b**2/3
+    q = 2*b**3/27 - b*c/3 + d
+
+    # Discriminant
     Δ = (q/2)**2 + (p/3)**3
-    
+
+    # Cube roots
     u = (-q/2 + cmath.sqrt(Δ))**(1/3)
     v = (-q/2 - cmath.sqrt(Δ))**(1/3)
-    x1 = u+v - b_/3
-    w = -0.5 + 0.5j*cmath.sqrt(3)
-    x2 = u*w + v*w.conjugate() - b_/3
-    x3 = u*w.conjugate() + v*w - b_/3
-    return (x1, x2, x3)
 
-print(root3(1, -4, 5, -2))
+    t1 = u + v
+    t2 = -(u+v)/2 + (u-v)*cmath.sqrt(3)/2j
+    t3 = -(u+v)/2 - (u-v)*cmath.sqrt(3)/2j
+
+    # Back-substitute x = t - b/3
+    return [t1 - b/3, t2 - b/3, t3 - b/3]
+
+print(solve_cubic(1, -6, 11, -6))
+print(solve_cubic(1, -9, 26, -24))
