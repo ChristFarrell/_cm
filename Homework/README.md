@@ -1,6 +1,6 @@
 # NOTES
 
-## [Homework 1]()
+## [Homework 1](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2001%20190925/Calculus.py)
 
 
 
@@ -9,11 +9,11 @@
 The equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
-## [Homework 3]()
+## [Homework 3](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2003%20190925/AlgebraAdvance.py)
 
 
 
-## [Homework 4]()
+## [Homework 4](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2004%20190925/CaseOfAlgebra.py)
 
 
 
@@ -101,3 +101,20 @@ def check_multiplication_group(p):
 ~(and another 4)
 ```
 On this section, there will be 5 section to be checked as addition group. Closure, Associativity, Commutativity, Identity, and Inverse. If all of the section is true, it means both of Addition and Multiplication of group are fullfill.
+
+At the end, the result will be printed:
+```python
+if __name__ == "__main__":
+    a = GF(5, 2)
+    b = GF(5, 3)
+    print("a =", a)
+    print("b =", b)
+    print("a+b =", a+b) # GF(5, 0)  (2+3=5 ≡ 0 mod 5)
+    print("a*b =", a*b) # GF(5, 1)  (2*3=6 ≡ 1 mod 5)
+    print("b-a =", b-a) # GF(5, 1)  (3-2=1 mod 5)
+    print("b/a =", b/a) # GF(5, 4)  (3 * inverse of 2 mod 5 = 3*3=9 ≡ 4 mod 5)
+
+    print("Distributivity in GF(5):", check_distributivity(5))
+    print("Addition forms a group in GF(5):", check_addition_group(5))
+    print("Multiplication (without 0) forms a group in GF(5):", check_multiplication_group(5))
+```
