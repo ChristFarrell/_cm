@@ -4,7 +4,7 @@
 
 
 
-## [Homework 2]()
+## [Homework 2](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2002%20190925/Algebra.py)
 
 The equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
@@ -49,7 +49,7 @@ def __truediv__(self, other):
     inv = pow(other.value, -1, self.p)  # multiplicative inverse mod p
     return GF(self.p, (self.value * inv) % self.p)
 ```
-The rules itself is $b/a or b * a^{-1}$. For example if we take a = GF(5, 2) and b = GF(5, 3), so the a is 2 and we need find the operation of $2 * x = 1 (mod 5)$. The eligible number only 6, which means we will take 3. At the result itself will be $3 * 3 = 9 = 4 (mod 5).$
+The rules itself is b/a or $b \cdot a^{-1}$. For example if we take a = GF(5, 2) and b = GF(5, 3), so the a is 2 and we need find the operation of $2 * x = 1 (mod 5)$. The eligible number only 6, which means we will take 3. At the result itself will be $3 * 3 = 9 = 4 (mod 5).$
 
 For the (def __eq__), we will check for both of a and b, if both of them in the same field. For example if a=(5, 2), then the b=(5, 3). Both field was same in 5.
 
