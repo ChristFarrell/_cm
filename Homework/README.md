@@ -16,7 +16,7 @@
 
 
 
-## [Homework 5]()
+## [Homework 5](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2005%20260925/GaloisField.py)
 
 A finite field (Galois field) is a finite set (its number of elements is finite). This process is equipped with addition and multiplication operations, which satisfy all the axioms of the field. The numbers that finite field uses is a prime number (2, 3, 5, 7, 9, 11, etc).
 
