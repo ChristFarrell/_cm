@@ -14,6 +14,7 @@ At the end, every calculation that python do was correct and always very close w
 ## [Homework 2](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2002%20190925/Algebra.py)
 
 The equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
+<br>
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$<br>
 
 At the end we using some of the example of x and get the result.
