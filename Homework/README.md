@@ -48,7 +48,7 @@ def __truediv__(self, other):
     inv = pow(other.value, -1, self.p)  # multiplicative inverse mod p
     return GF(self.p, (self.value * inv) % self.p)
 ```
-The rules itself is $b/a or b * a^-1$. For example if we take a = GF(5, 2) and b = GF(5, 3), so the a is 2 and we need find the operation of $2 * x = 1 (mod 5)$. The eligible number only 6, which means we will take 3. At the result itself will be $3 * 3 = 9 = 4 (mod 5).
+The rules itself is b/a or b * a^-1. For example if we take a = GF(5, 2) and b = GF(5, 3), so the a is 2 and we need find the operation of $2 * x = 1 (mod 5)$. The eligible number only 6, which means we will take 3. At the result itself will be $3 * 3 = 9 = 4 (mod 5).$
 
 For the (def __eq__), we will check for both of a and b, if both of them in the same field. For example if a=(5, 2), then the b=(5, 3). Both field was same in 5.
 
@@ -56,7 +56,7 @@ For the (def __repr__) and (def _check_same_field), the GF number will be printe
 
 After we finish the operation of mathemathics, we will continue to do the simple proofing of our operation. The proofing including 3 categories: Distributivity, Addition forms a group, and Multiplication forms a group.
 
-For the distributivity, we using rules of $A * ( B + c ) = ( A * B ) + ( A * C )$
+For the distributivity, we using rules of $A * ( B + C ) = ( A * B ) + ( A * C )$
 ```python
 def check_distributivity(p):
     for a in range(p):
