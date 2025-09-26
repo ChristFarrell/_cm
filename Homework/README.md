@@ -68,7 +68,7 @@ def check_distributivity(p):
     return True
 ```
 We can check it by testing using the mod = 5. Check with a=2, b=3, c=4:
-Left: $2 * (3+4) = 2 * 7 ≡ 2 * 2 = 4 (mod 5).$
+Left: $2 * (3+4) = 2 * 7 ≡ 2 * 2 = 4 (mod 5).$<br>
 Right: $2 * 3 + 2 * 4 = 6 + 8 ≡ 1 + 3 = 4 (mod 5).$
 
 At the end, the distributivity is fullfill.
