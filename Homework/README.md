@@ -14,7 +14,14 @@ At the end, every calculation that python do was correct and always very close w
 ## [Homework 2](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2002%20190925/Algebra.py)
 
 The equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
-$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$<br>
+
+At the end we using some of the example of x and get the result.
+```python
+print(root2(1, -5, 6)) # x = 3 & 2
+print(root2(1, 4, 3))  # x = -1 & -3  
+print(root2(1, 1, 1))  # x = -0.5 + 0.86j & -0.5 - 0.86j
+```
 
 ## [Homework 3](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2003%20190925/AlgebraAdvance.py)
 
