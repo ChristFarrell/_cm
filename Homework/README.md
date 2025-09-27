@@ -59,7 +59,39 @@ print(solve_cubic(1, -9, 26, -24)) # x = 4, 3, 2
 
 ## [Homework 4](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2004%20190925/CaseOfAlgebra.py)
 
+This question is asked to solve the equation with the power of x > 5. As we know from the Galois theorem, we cannot solve the equation with the power of x > 5, but by approaching through matrix eigenvalues, coded python can find the value of the equation x whose power is more than 5.<br>
 
+The first part, we just only simplified the equation and remove some not important numbers, so it can more easily to solve the equation.<br>
+
+The second part we use the same way with normalization of formula, which make variable a will be 1.
+```python
+c = [ci / c[-1] for ci in c]   # make leading coeff = 1
+```
+
+The third part, we using some special formula that actually contradicts Galois theorem but can solving the number of x. On the matrix, we have eigenvalue number on there. Eigenvalue is a characteristic scalar value that represents the scale factor by which a vector changes when multiplied by a matrix. Through this proof, it is concluded that the eigenvalues ​​are equal to the roots of the polynomial equation.<br>
+
+We can use example of equation ![equation](https://latex.codecogs.com/svg.latex?x^{6}-21x^{5}+175x^{4}-735x^{3}+1624x^{2}-1764x+720=0)
+
+![matrix](https://latex.codecogs.com/svg.latex?\begin{bmatrix}0&0&0&0&0&-720\\1&0&0&0&0&1764\\0&1&0&0&0&-1624\\0&0&1&0&0&735\\0&0&0&1&0&-175\\0&0&0&0&1&21\end{bmatrix})
+```python
+# companion matrix
+    companion = np.zeros((n, n))
+    companion[1:, :-1] = np.eye(n-1)
+    companion[:, -1] = -np.array(c[:-1])
+
+    # eigenvalue = akar polinomial
+    roots = np.linalg.eigvals(companion)
+    return roots
+```
+
+Here some of result the calculation of equation.
+```python
+coeffs = [-24, 26, -9, 1] 
+print(root(coeffs)) # x = 2, 3, 4
+
+coeffs = [720, -1764, 1624, -735, 175, -21, 1] 
+print(root(coeffs)) # x = 1, 2, 3, 4, 5, 6
+```
 
 ## [Homework 5](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2005%20260925/GaloisField.py)
 
