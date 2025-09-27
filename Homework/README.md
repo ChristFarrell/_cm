@@ -46,7 +46,7 @@ u = (-q/2 + cmath.sqrt(Δ))**(1/3)
 v = (-q/2 - cmath.sqrt(Δ))**(1/3)
 ```
 
-At the end, it will be calculate the variable of t1, t2, t3. We also sahift back the answer to gives the actual solutions of the equation.
+At the end, it will be calculate the variable of t1, t2, t3. We also shift back the answer to gives the actual solutions of the equation.
 ```python
 return [t1 - b/3, t2 - b/3, t3 - b/3]
 ```
