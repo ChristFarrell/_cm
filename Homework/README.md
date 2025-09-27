@@ -108,18 +108,18 @@ The code that I used was a bit simple because the proof is also only through tru
 The code start from checking the p or modulus number.
 ```python
 def __init__(self, p, value):
-        if p <= 1:
+    if p <= 1:
             raise ValueError("p must be a prime > 1")
-        self.p = p
-        self.value = value % p  # always keep inside [0, p-1]
+    self.p = p
+    self.value = value % p  # always keep inside [0, p-1]
 ```
 A finite field only exists if its modulus is a prime number p > 1. If p = 0, 1, or a negative number, the field is invalid. All element values ​​must be changed to always be within the range [0, p-1]. For example if FiniteField(5, 7) → 7 % 5 = 2, so the value is 2.
 
 After checking, there will be operation of mathematics.
 ```python
 def __add__(self, other):
-        self._check_same_field(other)
-        return GF(self.p, (self.value + other.value) % self.p)
+    self._check_same_field(other)
+    return GF(self.p, (self.value + other.value) % self.p)
 ```
 For the multiplication, we using (__add__). For the subtraction, we using (__sub__). For the multiplication, we using (__mul__) The operation itself it's still same, using (+, -, x). After finish the operation, it will continue to look for the modulus.
 
