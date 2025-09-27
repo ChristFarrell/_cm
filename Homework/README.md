@@ -70,9 +70,15 @@ c = [ci / c[-1] for ci in c]   # make leading coeff = 1
 
 The third part, we using some special formula that actually contradicts Galois theorem but can solving the number of x. On the matrix, we have eigenvalue number on there. Eigenvalue is a characteristic scalar value that represents the scale factor by which a vector changes when multiplied by a matrix. Through this proof, it is concluded that the eigenvalues ​​are equal to the roots of the polynomial equation.<br>
 
-We can use example of equation ![equation](https://latex.codecogs.com/svg.latex?\bg_white%20x^{6}-21x^{5}+175x^{4}-735x^{3}+1624x^{2}-1764x+720=0)
-
-![matrix](https://latex.codecogs.com/gif.latex?\bg_white\begin{bmatrix}0&0&0&0&0&-720\\1&0&0&0&0&1764\\0&1&0&0&0&-1624\\0&0&1&0&0&735\\0&0&0&1&0&-175\\0&0&0&0&1&21\end{bmatrix})
+We can use example of equation $x⁶ - 21x⁵ + 175x⁴ - 735x³ + 1624x² - 1764x + 720$. The result of matrix will be like this.
+```
+| 0  0   0   0   0  -720 |
+| 1  0   0   0   0  1764 |
+| 0  1   0   0   0 -1624 |
+| 0  0   1   0   0   735 |
+| 0  0   0   1   0  -175 |
+| 0  0   0   0   1    21 |
+```
 
 ```python
 # companion matrix
