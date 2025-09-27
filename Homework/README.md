@@ -72,12 +72,12 @@ The third part, we using some special formula that actually contradicts Galois t
 
 We can use example of equation $x⁶ - 21x⁵ + 175x⁴ - 735x³ + 1624x² - 1764x + 720$. The result of matrix will be like this.
 ```
-| 0  0   0   0   0  -720 |
-| 1  0   0   0   0  1764 |
-| 0  1   0   0   0 -1624 |
-| 0  0   1   0   0   735 |
-| 0  0   0   1   0  -175 |
-| 0  0   0   0   1    21 |
+| 0   0   0   0   0  -720 |
+| 1   0   0   0   0  1764 |
+| 0   1   0   0   0 -1624 |
+| 0   0   1   0   0   735 |
+| 0   0   0   1   0  -175 |
+| 0   0   0   0   1    21 |
 ```
 
 ```python
