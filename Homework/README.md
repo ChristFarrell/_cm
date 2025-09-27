@@ -86,7 +86,7 @@ We can use example of equation $x⁶ - 21x⁵ + 175x⁴ - 735x³ + 1624x² - 176
     companion[1:, :-1] = np.eye(n-1)
     companion[:, -1] = -np.array(c[:-1])
 
-    # eigenvalue = akar polinomial
+# eigenvalue = akar polinomial
     roots = np.linalg.eigvals(companion)
     return roots
 ```
