@@ -202,7 +202,7 @@ if __name__ == "__main__":
     print("Multiplication (without 0) forms a group in GF(5):", check_multiplication_group(5))
 ```
 
-## [Homework 6]()
+## [Homework 6](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2006%20031025/Geometry.py)
 
 This is the geometry python to do some test for the point, line, and circle. There are 4 test on this code: test for intersection of two lines, test for intersection of two circles, test for intersection of a line and a circle, and test for perpendicular line through a point outside the line.<br>
 
@@ -449,3 +449,5 @@ At the end, here the result.
 # 垂直線 L_perp: -3.00 x + 2.00 y = 7.00 (Perpendicular line)
 # 垂足 Q (交點): Point(-0.69, 2.46) (Legs perpendicular)
 ```
+
+All from input test number, already used by the code of Teacher.
