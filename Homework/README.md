@@ -201,3 +201,251 @@ if __name__ == "__main__":
     print("Addition forms a group in GF(5):", check_addition_group(5))
     print("Multiplication (without 0) forms a group in GF(5):", check_multiplication_group(5))
 ```
+
+## [Homework 6]()
+
+This is the geometry python to do some test for the point, line, and circle. There are 4 test on this code: test for intersection of two lines, test for intersection of two circles, test for intersection of a line and a circle, and test for perpendicular line through a point outside the line.<br>
+
+At first, we use point to represent poin of 2D (x,y) with using of dataclass.
+```python
+class Point:
+    x: float
+    y: float
+    def __repr__(self):
+        return f"Point({self.x:.2f}, {self.y:.2f})"
+```
+
+Second, we use line to store the equation of ax + by = c
+```python
+class Line:
+    # store line in ax + by = c
+    def __init__(self, a: float, b: float, c: float):
+        self.a = float(a)
+        self.b = float(b)
+        self.c = float(c)
+    def __repr__(self):
+        return f"{self.a:.2f} x + {self.b:.2f} y = {self.c:.2f}"
+```
+
+Third, we use circle to receive the coefficients a,b,c from the general equation $x² + y² + ax + by + c = 0$, then convert it to center-radius form.
+```python
+class Circle:
+    # equation: x^2 + y^2 + ax + by + c = 0
+    def __init__(self, a: float, b: float, c: float):
+        self.h = -a/2
+        self.k = -b/2
+        self.r2 = (a*a + b*b)/4 - c
+        self.r = math.sqrt(self.r2) if self.r2 >= 0 else float("nan")
+        self.a, self.b, self.c = float(a), float(b), float(c)
+
+    def __repr__(self):
+        return f"Circle(Center={Point(self.h, self.k)}, Radius={self.r:.4f})"
+```
+For the information:
+- self.h and self.k are the main coordinat. We using the rule (h, k) = (-a/2 , -b/2).
+- self.r2 = r², where the square radius of r² is (a² + b²)/4 - c.
+- self r we use sqrt for the result of self.r2<br>
+
+For example for the circle: If we have (0, 0, -25), it nmeans the main coordinat is (-0.0, -0.0), r2 = (0+0)/4 - (-25) = 25, which the radius is 5.<br>
+
+Next, we start to do the fuctions to answer every part of questions and test. We start it with intersect of two lines.
+```python
+def intersect_two_lines(L1: Line, L2: Line):
+    a1,b1,c1 = L1.a,L1.b,L1.c
+    a2,b2,c2 = L2.a,L2.b,L2.c
+    D = a1*b2 - a2*b1
+    if abs(D) < EPS:
+        # Lines are parallel or coincident
+        if abs(a1*c2 - a2*c1) < EPS and abs(b1*c2 - b2*c1) < EPS:
+            return "Coincident (infinite intersections)"
+        else:
+            return "Parallel (no intersection)"
+    # Unique intersection
+    x = (c1*b2 - c2*b1)/D
+    y = (a1*c2 - a2*c1)/D
+    return Point(x,y)
+```
+For the first question, the print answer will print 3 possibility of lines. First is coincident (infinite intersections), second is parallel (no intersection), and the last is unique intersection. On this part, it is work by receiving the equation of $ax + by = c$. Then the coefficient for a, b, and c will be taken and bring to the formula of determinant.<br>
+
+The determinant rules is $D = a1 ∗ b2 - a2 ∗ b1$<br>
+If D ≠ 0 it means  the lines intersect at one point.<br>
+If D = 0 it means the lines are parallel or coincident.<br>
+
+For D = 0, we use Cramer rules to find the unique intersection point. We can find it by using:
+```python
+x = (c1*b2 - c2*b1)/D
+y = (a1*c2 - a2*c1)/D
+```
+
+If the result is parallel or coincident, we need test it by have<br> 
+$a1 ∗ ​c2 ​− a2 ∗​ c1 ​= 0 and b1 ∗ ​c2 ​− b2 ∗ ​c1 ​= 0$.<br>
+
+If both answer same, we can sure that the both equation will have coincident (infinite intersections), otherwise the equation will have parallel (no intersection). Examples of figures can be seen below.<br>
+
+For the second part, we will find the intersection of two circles
+```python
+def intersect_two_circles(C1, C2):
+    dx,dy = C2.h-C1.h, C2.k-C1.k
+    d = math.hypot(dx,dy)
+    if d > C1.r+C2.r or d < abs(C1.r-C2.r) or d < EPS:
+        return "No intersection"
+    
+    a = (C1.r**2 - C2.r**2 + d*d) / (2*d)
+    h = math.sqrt(max(0,C1.r**2 - a*a))
+
+    xm = C1.h + a*dx/d
+    ym = C1.k + a*dy/d
+
+    rx, ry = -dy*(h/d), dx*(h/d)
+
+    if abs(h) < EPS:
+        return [Point(xm,ym)]
+    return [Point(xm+rx, ym+ry), Point(xm-rx, ym-ry)]
+```
+This section begins by calculating the distance between the center of circle C1 and circle C2. Next, the condition of the circle is checked.<br>
+d > r1 + r2     = centers too far, the circles do not meet.<br>
+d < |r1 - r2|   = one circle is inside the other but does not touch.<br>
+d < EPS         = the formula fails<br>
+
+Next, we search for the projection points, until we find the midpoint. (xm, ym) is the point in the middle between 2 points where the circle intersects. (ym, ry) is the orthogonal vector. At the end, it will print 2 different of point. Examples of figures can be seen below.<br>
+
+For the third part, we will find the intersection of a line and a circle.
+```python
+def intersect_line_circle(L, C):
+    a,b,c = L.a,L.b,L.c
+    # foot of center to line
+
+    t = (a*C.h+b*C.k+c)/(a*a+b*b)
+    x0 = C.h - a*t
+    y0 = C.k - b*t
+
+    d = math.hypot(x0-C.h, y0-C.k)
+    if d > C.r+EPS: 
+        return "No intersection"
+```
+This section begins by finding the projection point of the center of the circle onto the line (x0, y0). Next, using the formula d, we will determine the distance between the center (h, k) and the perpendicular point (x0, y0). If d > r, then there is no intersection. If d = 0, then the line touches the circle at one point.<br>
+
+```python
+if abs(d-C.r) < EPS: 
+        return [Point(x0,y0)]
+    h = math.sqrt(C.r**2 - d**2)
+    vx,vy = -b, a
+    l = math.hypot(vx,vy)
+    vx,vy = vx/l, vy/l
+    return [Point(x0+vx*h, y0+vy*h), Point(x0-vx*h, y0-vy*h)]
+```
+But, if d < r, This will give two points of intersection, so a shift of the projection point (x0, y0) is carried out to determine the two points of intersection of the circle-line. Examples of figures can be seen below.<br>
+
+For the last part, we will find perpendicular line.
+```python
+def get_perpendicular_line(L, P):
+    a,b,c = L.a,L.b,L.c
+    # perpendicular line: -b x + a y + c2 = 0
+    a2,b2 = -b,a
+    c2 = -(a2*P.x+b2*P.y)
+    Q = intersect_two_lines(L, Line(a2,b2,c2))
+    return {"perpendicular_line":Line(a2,b2,c2), "foot_of_perpendicular":Q}
+```
+From the equation of ax + by = c, we will take the (a,b) variable. Since we want to find a perpendicular line, we have to rotate it 90°, so it turns from (a,b) to (-b,a). At the end, the perpendicular equation will be -bx + ay + c = 0.<br>
+
+Next, we will get provide the number of P = (x,y). Later we will substitute the x and y to perpendicular equation, so we will get the result for variable c. The equation itself will be same for -bc + ay + c = 0. At the end, we have two different equation. First equation of line and the perpendicular equatiuon.<br>
+
+By finding that, we can finish the equation using of elimination methods to finding the result for foot of perpendicular (Q), by finding the number of x and y. Examples of figures can be seen below.<br>
+
+At the last part, we will start to do the calculation of geometry. First we will try to find the intersection of two lines. We can see the example in below.
+```python
+if __name__ == "__main__":
+    L_a = Line(2, 3, 6)
+    L_b = Line(4, -3, 6)
+    print("1. 兩直線交點測試:")
+    print(f"   {L_a} 和 {L_b}: {intersect_two_lines(L_a, L_b)}")
+
+    L_c = Line(1, 1, 1)
+    L_d = Line(2, 2, 5)
+    print(f"   {L_c} 和 {L_d}: {intersect_two_lines(L_c, L_d)}")
+```
+For example the equation of $2x + 3y = 6 and 4x - 3y = 6$<br>
+D = 2 * (-3) - 4 * 3 = -18 (use Cramer rule to find the unique point)<br>
+```python
+x point
+x = (c1*b2 - c2*b1) / D
+x = (6*(-3) - 6*3) / -18
+x = 2
+
+y point
+y = (a1*c2 - a2*c1) / D
+y = (2*6 - 4*6) / -18
+y = 2/3 ≈ 0.67
+
+# So the point (2 , 0.67)
+```
+
+For equation of $x + y = 1 and 2x + 2y = 5$<br>
+D = 1 * 2 - 2 * 1 = 0 (Checking lines)<br>
+```python
+a1c2 - a2c1 = 1 * 5 - 2 * 1 = 3
+b1c2 - b2c1 = 1 * 5 - 2 * 1 = 3
+
+# So it is Infinite intersections (lines are coincident)
+```
+
+Second, we will find the intersection of two circles.
+```python
+C_g = Circle(-2, 0, -8) 
+C_h = Circle(2, 0, -8)
+    print("2. 兩個圓交點測試:")
+    print(f"   {C_g} 和 {C_h}: {intersect_two_circles(C_g, C_h)}\n")
+```
+From there we can know 2 equation for x^2 + y^2 - 2x - 8 = 0 and x^2 + y^2 + 2x - 8 = 0. Both circles are centered at (1,0) and (-1,0) with radius 3. If we completed the equation, by using equation 1 = equation 2, we will find the point of x, which is 0. The 0 will be substitute to euqation and there will be 2 different points for y (-2.83 and 2.83). At the end, here the result.
+```python
+ # Circle(Center=Point(1.00, 0.00), Radius=3.0000) 和 Circle(Center=Point(-1.00, 0.00), Radius=3.0000): [Point(0.00, -2.83), Point(0.00, 2.83)]
+```
+
+Third, we will find the intersection of a line.
+```python
+C_i = Circle(0, 0, -25) 
+L_l = Line(1, 0, 10)
+    print(f"   {L_l} 和 {C_i} (不相交): {intersect_line_circle(L_l, C_i)}\n")
+```
+From there, we can know that<br>
+a = 1, b = 0, c = -10 (a*x + b*y + c = 0)<br>
+h = 0, k = 0, r = 5<br>
+
+From the t = (a*C.h+b*C.k+c)/(a*a+b*b), we can know the t = -10, so x0 = 10 and y0 = 0 (x0, y0) = (10, 0). We remember that from the equation of circle, the r will be 5. Since of that, we found that d = 10 and r = 5. So d > r. At the end, here the result.
+```python
+ # 1.00 x + 0.00 y = 10.00 和 Circle(Center=Point(0.00, 0.00), Radius=5.0000) (不相交): No intersection
+```
+
+Last, we will find the perpendicular line through a point outside the line.
+```python
+L_m = Line(2, 3, 6)
+P_n = Point(5, 4)
+    result = get_perpendicular_line(L_m, P_n)
+```
+From there, we know the a = 2, b = 3, c = 6, P.x = 5, P.y = 4. Then we use rule c2 = -(a2*P.x+b2*P.y) =−((−3)(5)+(2)(4)) = 7.<br>
+
+Because it is perpendicular, (a,b) becomes (-b,a), which the result of equation is -3x + 2y = 7. Lastly, we just need find the Q.<br>
+
+For equation of $2x + 3y = 6 and -3x + 2y = 7$<br>
+D = 2 * 2 - (-3)(3) = 13<br>
+```python
+x point
+x = (c1*b2 - c2*b1) / D
+x = (6*2 - 7*3) / 13
+x = -9/13 ≈ -0.69
+
+y point
+y = (a1*c2 - a2*c1) / D
+y = (2*7 - (-3)*6) / 13
+y = 32/13 ≈ 2.46
+
+# So the point (-0.69, 2.46)
+```
+
+At the end, here the result.
+```python
+# 原直線 L: 2.00 x + 3.00 y = 6.00 (Starting line)
+# 線外點 P: Point(5.00, 4.00) (Outer point)
+# 垂直線 L_perp: -3.00 x + 2.00 y = 7.00 (Perpendicular line)
+# 垂足 Q (交點): Point(-0.69, 2.46) (Legs perpendicular)
+```
