@@ -364,7 +364,7 @@ if __name__ == "__main__":
     L_d = Line(2, 2, 5)
     print(f"   {L_c} 和 {L_d}: {intersect_two_lines(L_c, L_d)}")
 ```
-For example the equation of $2x + 3y = 6 and 4x - 3y = 6$<br>
+For example the equation of $2x + 3y = 6 & 4x - 3y = 6$<br>
 D = 2 * (-3) - 4 * 3 = -18 (use Cramer rule to find the unique point)<br>
 ```python
 x point
@@ -426,7 +426,7 @@ From there, we know the a = 2, b = 3, c = 6, P.x = 5, P.y = 4. Then we use rule 
 
 Because it is perpendicular, (a,b) becomes (-b,a), which the result of equation is -3x + 2y = 7. Lastly, we just need find the Q.<br>
 
-For equation of $2x + 3y = 6 and -3x + 2y = 7$<br>
+For equation of $2x + 3y = 6 & -3x + 2y = 7$<br>
 D = 2 * 2 - (-3)(3) = 13<br>
 ```python
 x point
