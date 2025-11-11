@@ -451,3 +451,54 @@ At the end, here the result.
 ```
 
 All from input test number, already used by the code of Teacher.
+
+## [Homework 7](https://github.com/ChristFarrell/_cm/tree/main/Homework/Homework%2007%20071125)
+
+For 1-zTest.py, We calculate how far the sample mean is from the population mean, in standard deviation units. if the result of (z > 1 or z < -1), it means that the data average is different from the general population. For example of cases: <br>
+
+The average height of Indonesians is 170 cm and the standard deviation is 10 cm. Now, let's take 25 students from one school as an example, and calculate the average, and it turns out to be 173 cm.<br>
+
+By using the z-test normal distribution formula, we take 10 samples:
+```python
+u = 170      # avaerage of population
+sigma = 10    # population standard deviation
+
+# Sample data
+sample = np.array([172, 174, 179, 185, 171, 173, 174, 178, 170, 172])
+```
+
+At the end the result for z = 1.518 and p = 0.1290, which means above the population mean, but not too high.<br>
+
+For 2-tTest.py, We used it if we don't know the population standard deviation and only have sample data. Same like the z test, when t more than 1 or less than -1, it means that the data average is different from the general population. For example of cases: <br>
+
+Evand wants to know if his class' math test scores differ from the average of 75. But he doesn't have school-wide data, and only has his friends' scores.<br>
+
+By using the t-test, we take some of samples:
+```python
+scores = np.array([78, 74, 80, 72, 76, 79, 73])
+mu = 75  # hypothesized mean
+```
+At the end the result for t = 0.851 and p = 0.4274, which means is not statistically significant.<br>
+
+For 3-tTwoSampleTest.py, We want to see whether the means between the two groups/sample are truly different, or whether the difference is just a coincidence due to variation in the data. If p < 0.05, it means that the two groups are significantly different. For example of cases: <br>
+
+From the results of a school's exam, a comparison was made to determine whether the mathematics scores of science and social studies students differed significantly.<br>
+
+By using the test, we take some of samples:
+```python
+sains = [82, 85, 88, 90, 79]
+social = [75, 78, 84, 80, 76]
+```
+At the end the result for t = 0.851 and p = 0.4274, which means the two groups did not have significant differences (the gap was small).<br>
+
+For 4-tPairedTest.py, We collect data/samples from the same person, but measured twice. Same like the (3-test), if p < 0.05, it means the result was significantly different. For example of cases: <br>
+
+Budi wants to measure his math grades before and after taking tutoring.
+Did the tutoring actually help improve his grades?<br>
+
+By using the test, we take some of samples:
+```python
+before = [70, 72, 68, 65, 74]
+after = [75, 78, 74, 70, 80]
+```
+At the end, the result for t = –4.545 and p = 0.0105 means that the difference between the scores before and after is statistically significant.<br>
