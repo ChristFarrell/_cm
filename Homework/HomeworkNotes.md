@@ -502,3 +502,44 @@ before = [70, 72, 68, 65, 74]
 after = [75, 78, 74, 70, 80]
 ```
 At the end, the result for t = –4.545 and p = 0.0105 means that the difference between the scores before and after is statistically significant.<br>
+
+## [Homework 8]()
+
+This information theory program, work to find the probability, log, entropy, cross-entropy, KL divergence, mutual information, and Hamming code. By the end, there are also explanation to Shannon theorem.<br>
+
+At first for probability, we have p = 0.5 and n = 10000. Simply, we just nee raise the number 0.5 to the power of 10000 (pⁿ). Since the result will be very small, it just shown as 0. To ding the exact number, we can find by using log. Using the $log(pⁿ) = n ⋅ log(p)$, we can know the answer will be -6931.47.<br>
+
+Next is entropy, cross-entropy, and KL divergence. Entropy measures the uncertainty in a probability distribution. If all probabilities are equal, entropy is maximum. If one probability is nearly 1, entropy is low. We using p = [1/6, 1/3, 1/3, 1/6] and found the result will be 1.98, which means entropy is nearly maximum. For cross-entropy, we want to search how many bits are needed if we use the wrong model (q) for data that actually follows p. Since H(p) = 1.9875 and H(p,q) = 2.0609, it means using q to describe data p requires more bits.After that, we using KL divergence to measures how much the distribution of q is different from p. By using $KL(p ∣∣ q) = H(p,q) − H(p)$, the result will always be smaller than 0. The result for p and q itself, 0.1508 bit ekstra. At Number 4, we just check the validation that H(p,p)is smaller than H(p,q), and the result is True.<br>
+
+Next is Mutual information, we want to find out how strong the relationship between two variables X and Y. For this, we using matrix 2x2, where p_xy = [[0.25, 0.0], [0.0, 0.75]]. The result is 0.811 which means the relationship between the two variables is quite strong.<br>
+
+Next is Hamming code. Hamming (7,4) means there are 4 bits of data are given as input, and the output will be 7 bits of code (4 data + 3 parity). From d = [1, 0, 1, 1] we calculate the parity:
+```
+p1 = d1 ⊕ d2 ⊕ d4 = 1 ⊕ 0 ⊕ 1 = 0
+p2 = d1 ⊕ d3 ⊕ d4 = 1 ⊕ 1 ⊕ 1 = 1
+p3 = d2 ⊕ d3 ⊕ d4 = 0 ⊕ 1 ⊕ 1 = 0
+```
+At the end, the result will be shown as [p1, p2, d1, p3, d2, d3, d4] = [0, 1, 1, 0, 0, 1, 1].
+
+After that with error, change position 4 (bit p3) from 0 → 1, so that the code becomes [0, 1, 1, 1, 0, 1, 1]. Using the detection and correction the syndrome:
+```
+s1 = p1 ⊕ d1 ⊕ d2 ⊕ d4 = 0 ⊕ 1 ⊕ 0 ⊕ 1 = 0
+s2 = p2 ⊕ d1 ⊕ d3 ⊕ d4 = 1 ⊕ 1 ⊕ 1 ⊕ 1 = 0
+s3 = p3 ⊕ d2 ⊕ d3 ⊕ d4 = 1 ⊕ 0 ⊕ 1 ⊕ 1 = 1
+
+(s1, s2,  s3) = (0, 0, 1)
+s1*1 + s2*2 + s3*4 = 0 + 0 + 4 = 4
+```
+The detection find that the 4th bit is faulty, so flip the bit in position 4 (1 → 0), and code back [0, 1, 1, 0, 0, 1, 1]. At the end the decoded take again the data d1, d2, d3, d4 from positions 3, 5, 6, 7 and the result was back to [1, 0, 1, 1].<br>
+
+At the last, there will be explanation of Shannon Channel Coding Theorem and Shannon–Hartley Theorem. On Shannon Channel Coding Theorem, this theory states that if a transmission rate R (the sending rate in bits/second) is smaller than the channel capacity C, then the error can be made close to zero by using a sufficiently long code. Simply put, if we transmit data slower than the channel capacity, we can minimize the error.<br>
+
+For Shannon-Hartley Theorem, this theory states that the maximum amount of data that can be sent over a communication channel (Wi-Fi, radio, etc.), in the presence of noise. Simply, the greater the bandwidth, the faster data can be sent, and the greater the SNR (signal over noise ratio), the more data can be sent. The formula is C = B * log₂(1 + S/NR). For example of cases:
+```
+Bandwidth = 1 MHz
+SNR = 15 (in ratio units)
+Therefore:
+C = 1,000,000 * log₂(1+15)
+C = 1,000,000 * log₂(16)
+C = 1,000,000 * 4 = 4Mbps (It means the maximum send is 4 Mbps reliably over that channel.)
+```
