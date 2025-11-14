@@ -505,7 +505,7 @@ At the end, the result for t = –4.545 and p = 0.0105 means that the difference
 
 ## [Homework 8]()
 
-This information theory program, work to find the probability, log, entropy, cross-entropy, KL divergence, mutual information, and Hamming code. By the end, there are also explanation to Shannon theorem.<br>
+This information theory program work to find the probability, log, entropy, cross-entropy, KL divergence, mutual information, and Hamming code. By the end, there are also explanation to Shannon theorem.<br>
 
 At first for probability, we have p = 0.5 and n = 10000. Simply, we just nee raise the number 0.5 to the power of 10000 (pⁿ). Since the result will be very small, it just shown as 0. To ding the exact number, we can find by using log. Using the $log(pⁿ) = n ⋅ log(p)$, we can know the answer will be -6931.47.<br>
 
