@@ -30,7 +30,7 @@ def mutual_information(p_xy):
 def verify_cross_entropy_property(p, q):
     H_pp = cross_entropy(p, p)
     H_pq = cross_entropy(p, q)
-    return H_pp, H_pq, (H_pp < H_pq) #verif
+    return H_pp, H_pq, (H_pp < H_pq) #verify
 
 def hamming74_encode(d):
     """Input: 4 bit [d1,d2,d3,d4], Output: 7 bit Hamming code"""
@@ -90,7 +90,6 @@ if __name__ == "__main__":
     encoded = hamming74_encode(data)
     print("Encoded =", encoded)
     
-    # buat error satu bit
     encoded_with_error = encoded.copy()
     encoded_with_error[3] ^= 1
     print("With error =", encoded_with_error)
