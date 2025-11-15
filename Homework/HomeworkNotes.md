@@ -503,7 +503,7 @@ after = [75, 78, 74, 70, 80]
 ```
 At the end, the result for t = –4.545 and p = 0.0105 means that the difference between the scores before and after is statistically significant.<br>
 
-## [Homework 8]()
+## [Homework 8](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2008%20141125/InformationTheory.py)
 
 This information theory program work to find the probability, log, entropy, cross-entropy, KL divergence, mutual information, and Hamming code. By the end, there are also explanation to Shannon theorem.<br>
 
