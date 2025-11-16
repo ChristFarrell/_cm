@@ -25,12 +25,12 @@ def mutual_information(p_xy):
     
     mask = p_xy > 0
     
-    return np.sum(p_xy[mask] * np.log2(p_xy[mask] / (p_x * p_y)[mask])) #entro
+    return np.sum(p_xy[mask] * np.log2(p_xy[mask] / (p_x * p_y)[mask]))
 
 def verify_cross_entropy_property(p, q):
     H_pp = cross_entropy(p, p)
     H_pq = cross_entropy(p, q)
-    return H_pp, H_pq, (H_pp < H_pq) #verify
+    return H_pp, H_pq, (H_pp < H_pq) # verify
 
 def hamming74_encode(d):
     """Input: 4 bit [d1,d2,d3,d4], Output: 7 bit Hamming code"""
@@ -56,7 +56,7 @@ def hamming74_decode(code):
     if error_pos != 0:
         code[error_pos - 1] ^= 1       # fix code
     
-    # return 4 bit data asli
+    # return to real 4 bit
     return [code[2], code[4], code[5], code[6]]
 
 if __name__ == "__main__":
