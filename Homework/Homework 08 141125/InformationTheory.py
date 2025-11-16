@@ -42,7 +42,6 @@ def hamming74_encode(d):
     
     return [p1, p2, d1, p3, d2, d3, d4]
 
-
 def hamming74_decode(code):
     """Decode + correct 1-bit error"""
     p1, p2, d1, p3, d2, d3, d4 = code
@@ -52,7 +51,7 @@ def hamming74_decode(code):
     s2 = p2 ^ d1 ^ d3 ^ d4
     s3 = p3 ^ d2 ^ d3 ^ d4
     
-    error_pos = s1*1 + s2*2 + s3*4     # posisi error (1–7)
+    error_pos = s1*1 + s2*2 + s3*4     # position error (1–7)
     
     if error_pos != 0:
         code[error_pos - 1] ^= 1       # fix code
