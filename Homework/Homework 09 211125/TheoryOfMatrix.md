@@ -36,7 +36,7 @@ det(A) = Σ(-1)ⁱ⁺ʲ aᵢⱼ Mᵢⱼ<br>
 
 From there, Mᵢⱼ = minor matrix determinant. The relation between the determinant and the volume of a matrix shows that the absolute value of the determinant of a matrix is ​​equal to the volume of the parallelepiped spanned by the column (or row) vectors of the matrix. It is formulated as | det(A) |. If the determinant is positive, then the volume does not change orientation. If the determinant is negative, then the orientation of the object is reversed after the transformation. If the determinant of a matrix is ​​zero, then the matrix is ​​singular.
 
-### How can determinant be calculated quickly using diagonalization?
+### I. How can determinant be calculated quickly using diagonalization?
 The determinant can be calculated quickly using diagonalization when the matrix is ​​already diagonal, because the determinant is the product of the main diagonal elements.
 ```
 | a 0 0 |
@@ -48,7 +48,7 @@ Det(A) = a x b x c
 
 However, If the matrix is ​​not diagonal, a theorem states that the determinant of matrix A is equal to the determinant of a diagonal matrix with the same eigenvalues. Using the formula A = P D P⁻¹, the final result will lead to det(A) = det(D) = ∏λᵢ.
 
-### How can determinant be calculated quickly using LU decomposition?
+### II. How can determinant be calculated quickly using LU decomposition?
 The determinant of a matrix A can be calculated quickly using the LU decomposition because, since L is a lower triangular matrix, the product of L is 1. Therefore, det(A) = ∏(Diagonal of U).
 
 ## What is the meaning of eigenvalues ​​and eigenvectors? What are the uses of eigenvalue decomposition?
