@@ -543,3 +543,133 @@ C = 1,000,000 * log₂(1+15)
 C = 1,000,000 * log₂(16)
 C = 1,000,000 * 4 = 4Mbps (It means the maximum send is 4 Mbps reliably over that channel.)
 ```
+
+## [Homework 9]()
+
+First file is MatrixDeterminant.py, where we asked to find determinant value without using of numpy inside python. This work by creating a function using cofactor expansion. This function will call itself up to a small matrix size.
+```python
+if n == 1:
+        return A[0][0]
+
+    if n == 2:
+        return A[0][0]*A[1][1] - A[0][1]*A[1][0]
+```
+From matrix that contains 1 number, the determinant is also the number itself. If the matrix start to 2x2, then we use the usual cross product formula ($ad - bc$) to find the value of the determinant.
+
+```python
+det = 0
+    for j in range(n):
+        sub = [row[:j] + row[j+1:] for row in A[1:]]
+        det += ((-1)**j) * A[0][j] * det_recursive(sub)
+```
+For the matrix that more than 2x2, we can use cofactor expansion., where it will be remove row and col one by one. For example for matrix 3x3, the formula will be written like this<br>
+$det(A) = (+) a₀₀ M₀₀​ (−) a₀₁​ M₀₁​ (+) a₀₂​ M₀₂​$<br>
+
+```
+col = 0    col = 1    col = 2         
+| 4  5 |   | 0  5 |   | 0  4 |
+| 0  6 |   | 1  6 |   | 1  0 | 
+```
+From there, the determinant of A will be 24 + 10 − 12 = 22.<br>
+
+Second & Third is MatrixVerifyLU.py. From the LU, we asked to find matrix L, matrix U, Determinant via LU, Determinant via NumPy, and verification of L@U (must be the same as A). Another verification, we use eigen decomposition, by reconstruction V Λ V⁻¹ and SVD decomposition, by reconstruction U Σ Vᵀ.
+```python
+def lu_decompose(A):
+    A = A.astype(float)
+    n = len(A)
+    L = np.eye(n) # diagonal L = 1
+    U = A.copy()
+    
+    for i in range(n):
+        for j in range(i+1, n):
+            factor = U[j][i] / U[i][i]
+            L[j][i] = factor
+            U[j] -= factor * U[i]
+    return L, U
+
+def det_from_lu(A):
+    L, U = lu_decompose(A)
+    det = np.prod(np.diag(U))  # because diag(L)=1
+    return det, L, U
+```
+For LU, at first we find L and U through Gaussian elimination. Where L = Lower triangular matrix (bottom of the triangle) and U = Upper triangular matrix (top of the triangle). Next, we find the determinant by using the product of diagonal U. We using U, because diagonal L will always 1 and base the rule itself, $det(A) = det(L) ⋅ det(U)$. After that L, U, and det A will get printed. We also using test from numpy, to see if the answer will be same or not. At the end, the verification by reconstruction L U, will make the matrix back to A.<br>
+
+After that for Eigen Decomposition, we asked to find eigenvalues and eigenvectors. After that verify it.
+```python
+eigvals, eigvecs = np.linalg.eig(A)
+
+print("\nReconstruction V Λ V⁻¹ =\n", eigvecs @ np.diag(eigvals) @ np.linalg.inv(eigvecs))
+```
+We find eigenvalues by using formula: $det(A − λI) = 0$ and to find eigenvectors, we using formula: $(A − λI)v = 0$. Both uses a NumPy function (np.linalg.eig) that automatically calculates it. We also use the concept of matrix inside of reconstruction A = V Λ V⁻¹. From there, the matrix will back to A.<br>
+
+At last, for SVD Decomposition, The verification work by finding A = U Σ Vᵀ, where:
+```python
+U_svd, S_svd, VT_svd = np.linalg.svd(A)
+Sigma = np.zeros_like(A)
+np.fill_diagonal(Sigma, S_svd)
+
+print("\nReconstruction U Σ Vᵀ =\n", U_svd @ Sigma @ VT_svd)
+```
+U   = orthogonal matrix (columns = left singular vectors)<br>
+Σ   = diagonal matrix containing singular values ​​(σ₁, σ₂, σ₃,…)<br>
+Vᵀ  = transpose of orthogonal matrix V (right singular vectors)<br>
+During of process NumPy returns S as a 1D array and change the array of S to matrix diagonal. As same like before, we use reconstruction A = U Σ Vᵀ. From there, the matrix will back to A.<br>
+
+Fourth is MatrixSVDManual.py. This time we still using same concept to verivy matrix by using of SVD, but on this project, we using eigen decomposition to generating U, Σ, V manually.
+```python
+def svd_manual(A):
+    ATA = A.T @ A
+    print("\nAᵀ A =\n", ATA)
+
+    eigvals, V = np.linalg.eig(ATA)
+
+    idx = np.argsort(eigvals)[::-1]
+    eigvals = eigvals[idx]
+    V = V[:, idx]
+```
+From there, we take the eigenvalues ​​and eigenvectors of AᵀA. After that, the values ​​of both will be sorted from largest to smallest. In the function [np.linalg.eig(ATA)], it also produces the value of V.
+
+```python
+singular_values = np.sqrt(eigvals)
+
+Sigma = np.zeros_like(A, dtype=float)
+np.fill_diagonal(Sigma, singular_values)
+
+Sigma_inv = np.zeros_like(A, dtype=float)
+for i in range(len(singular_values)):
+    if singular_values[i] != 0:
+        Sigma_inv[i][i] = 1 / singular_values[i]
+
+U = A @ V @ Sigma_inv
+
+reconstruction = U @ Sigma @ V.T
+```
+On this part, we start find the sigular value of SVD and make Σ as the diagonal matrix. For finding the value of U, where U = A V Σ⁻¹. But Σ can have a diagonal of 0, where to invert it requires an inverse code per element. At the end by using the reconstruction A = U Σ Vᵀ, the matrix will back to A.<br>
+
+Last is MatrixPCA.py. PCA (Principal Component Analysis) is a method for: reducing data dimensions (dimension reduction).
+```python
+def PCA(X, k=2):
+    X_centered = X - np.mean(X, axis=0)
+
+    C = np.cov(X_centered, rowvar=False)
+
+    vals, vecs = np.linalg.eig(C)
+
+    idx = np.argsort(-vals)
+    vecs = vecs[:, idx]
+    
+    W = vecs[:, :k]
+
+    X_pca = X_centered @ W
+    return X_pca, W, vals[idx]
+```
+Above is the main of how PCA work. First, we subtract each column from its mean. This way, PCA will find the largest variance. Next, the covariance matrix will show the relationships between variables. If the data has three features, C becomes a 3x3 matrix. Then, calculations are performed to find the eigenvalues ​​and eigenvectors, and they are sorted. Finally, using the k value at the top, we use matrix multiplication to project the data into a new space.
+
+```python
+    explained_variance = vals[:k]
+
+    explained_variance_ratio = explained_variance / np.sum(vals)
+
+    X_reconstructed = X_pca @ W.T + mean
+```
+In Explained Variance, the aim is to find out how much information (variance) is captured by each Principal Component. Continuing with the Explained Variance Ratio, which aims to find out the percentage of information by PC1, PC2, etc. At the end by reconstruction A = X(PCA)Wᵀ + mean, the matrix will back to A.<br>
