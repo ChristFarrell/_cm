@@ -544,7 +544,7 @@ C = 1,000,000 * log₂(16)
 C = 1,000,000 * 4 = 4Mbps (It means the maximum send is 4 Mbps reliably over that channel.)
 ```
 
-## [Homework 9]()
+## [Homework 9](https://github.com/ChristFarrell/_cm/tree/main/Homework/Homework%2009%20211125)
 
 First is MatrixDeterminant.py, where we asked to find determinant value without using of numpy inside python. This work by creating a function using cofactor expansion. This function will call itself up to a small matrix size.
 ```python
