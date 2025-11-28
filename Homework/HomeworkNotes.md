@@ -673,3 +673,77 @@ Above is the main of how PCA work. First, we subtract each column from its mean.
     X_reconstructed = X_pca @ W.T + mean
 ```
 In Explained Variance, the aim is to find out how much information (variance) is captured by each Principal Component. Continuing with the Explained Variance Ratio, which aims to find out the percentage of information by PC1, PC2, etc. At the end by reconstruction A = X(PCA)Wᵀ + mean, the matrix will back to A.<br>
+
+## [Homework 10]()
+
+In this project, we are asked to write the Discrete Fourier Transform (DFT) and its inverse Discrete Fourier Transform (IDFT) formulas ourselves, without using the Fourier package (numpy.fft, scipy.fft). After calculating both, the result must return the original signal. Calculations in this project must not use Python libraries.
+
+Discrete Fourier Transform (DFT) is formulated as below, where loop k = frequency and loop n = data/signal. After that, the signal f[n] is multiplied with the "Fourier basis" and produces F[k] (frequency representation).
+
+\[
+F[k] = \sum_{n=0}^{N-1} f[n] \, e^{-j \frac{2\pi}{N} kn}
+\]
+
+Inverse DFT (IDFT) is formulated as below, where the signal is returned to the time domain.
+
+\[
+f[n] = \frac{1}{N} \sum_{k=0}^{N-1} F[k] \, e^{j \frac{2\pi}{N} kn}
+\]
+
+```python
+def verify_signal(f):
+    print("Original f[n]:", ...)
+    print("N =", len(f))
+
+    # --- DFT ---
+    F = dft(f)
+    print("DFT F[k] :", ...)
+
+    # --- IDFT ---
+    f_back = idft(F)
+    print("IDFT f[n]:", ...)
+
+    recovered = [round(x.real, 6) for x in f_back]
+    print("Recovered:", recovered)
+
+    # --- Verification ---
+    if all(abs(a - b) < 1e-6 for a, b in zip(f, recovered)):
+        print("✔ Verification PASSED\n")
+    else:
+        print("✘ Verification FAILED\n")
+```
+At the end when we print the DFT and IDFT values, we also verify them with some signal tests. In Constant Signal Test, we use f[n] = 5, to check whether the DFT recognizes the DC signal. In Periodic Cosine Signal Test, we use f[n] = \cos\!\left( \frac{2\pi k n}{N} \right), to check whether the DFT can capture the fundamental frequency. Finally, in Impulse Signal Test, we use f = [17, 0, 0,...] to prove that the DFT/IDFT works in all extremal conditions.
+
+In the end the results showed all tests passed.
+```
+Test 1: Constant Signal
+Original f[n]: [5.0, 5.0, 5.0, 5.0]
+N = 4
+
+DFT F[k] : [(20+0j), (-0-0j), -0j, -0j]
+IDFT f[n]: [(5-0j), (5-0j), (5+0j), (5+0j)]
+Recovered: [5.0, 5.0, 5.0, 5.0]
+✔ Verification PASSED
+
+Test 2: Periodic (Cosine) Signal
+Original f[n]: [1.0, 0.707107, 0.0, -0.707107, -1.0, -0.707107, -0.0, 0.707107]
+N = 8
+
+DFT F[k] : [(-0+0j), (4-0j), (-0-0j), -0j, -0j, -0j, -0j, (4+0j)]
+IDFT f[n]: [(1+0j), (0.707107+0j), 0j, (-0.707107-0j), (-1-0j), (-0.707107+0j), (-0+0j), (0.707107-0j)]
+Recovered: [1.0, 0.707107, 0.0, -0.707107, -1.0, -0.707107, -0.0, 0.707107]
+✔ Verification PASSED
+
+Test 3: Impulse Signal
+Original f[n]: [17.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+N = 6
+
+DFT F[k] : [(17+0j), (17+0j), (17+0j), (17+0j), (17+0j), (17+0j)]
+IDFT f[n]: [(17+0j), (-0+0j), 0j, 0j, (-0+0j), (-0+0j)]
+Recovered: [17.0, -0.0, 0.0, 0.0, -0.0, -0.0]
+✔ Verification PASSED
+```
+
+## [Homework 11]()
+
+First is 1-VectorCalculusOperations.py, In this part we are asked to find gradient, divergence, and curl in a 3D vector field. We start by defining the vector field F (F(x, y, z) = (x²y, y²z, z²x)) and defining the scalar field F (f(x ,y ,z) = x²y + yz²).
