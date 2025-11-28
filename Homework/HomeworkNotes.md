@@ -674,7 +674,7 @@ Above is the main of how PCA work. First, we subtract each column from its mean.
 ```
 In Explained Variance, the aim is to find out how much information (variance) is captured by each Principal Component. Continuing with the Explained Variance Ratio, which aims to find out the percentage of information by PC1, PC2, etc. At the end by reconstruction A = X(PCA)Wᵀ + mean, the matrix will back to A.<br>
 
-## [Homework 10]()
+## [Homework 10](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2010%20281125/FourierTransformation.py)
 
 In this project, we are asked to write the Discrete Fourier Transform (DFT) and its inverse Discrete Fourier Transform (IDFT) formulas ourselves, without using the Fourier package (numpy.fft, scipy.fft). After calculating both, the result must return the original signal. Calculations in this project must not use Python libraries.
 
@@ -744,6 +744,6 @@ Recovered: [17.0, -0.0, 0.0, 0.0, -0.0, -0.0]
 ✔ Verification PASSED
 ```
 
-## [Homework 11]()
+## [Homework 11](https://github.com/ChristFarrell/_cm/tree/main/Homework/Homework%2011%20041225)
 
 First is 1-VectorCalculusOperations.py, In this part we are asked to find gradient, divergence, and curl in a 3D vector field. We start by defining the vector field F (F(x, y, z) = (x²y, y²z, z²x)) and defining the scalar field F (f(x ,y ,z) = x²y + yz²).
