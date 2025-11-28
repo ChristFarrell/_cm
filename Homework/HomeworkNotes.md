@@ -680,15 +680,15 @@ In this project, we are asked to write the Discrete Fourier Transform (DFT) and 
 
 Discrete Fourier Transform (DFT) is formulated as below, where loop k = frequency and loop n = data/signal. After that, the signal f[n] is multiplied with the "Fourier basis" and produces F[k] (frequency representation).
 
-\[
+$$
 F[k] = \sum_{n=0}^{N-1} f[n] \, e^{-j \frac{2\pi}{N} kn}
-\]
+$$
 
 Inverse DFT (IDFT) is formulated as below, where the signal is returned to the time domain.
 
-\[
+$$
 f[n] = \frac{1}{N} \sum_{k=0}^{N-1} F[k] \, e^{j \frac{2\pi}{N} kn}
-\]
+$$
 
 ```python
 def verify_signal(f):
