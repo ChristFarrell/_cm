@@ -712,7 +712,7 @@ def verify_signal(f):
     else:
         print("✘ Verification FAILED\n")
 ```
-At the end when we print the DFT and IDFT values, we also verify them with some signal tests. In Constant Signal Test, we use f[n] = 5, to check whether the DFT recognizes the DC signal. In Periodic Cosine Signal Test, we use f[n] = \cos\!\left( \frac{2\pi k n}{N} \right), to check whether the DFT can capture the fundamental frequency. Finally, in Impulse Signal Test, we use f = [17, 0, 0,...] to prove that the DFT/IDFT works in all extremal conditions.
+At the end when we print the DFT and IDFT values, we also verify them with some signal tests. In Constant Signal Test, we use f[n] = 5, to check whether the DFT recognizes the DC signal. In Periodic Cosine Signal Test, we use f[n] = $\cos\!\left( \frac{2\pi k n}{N} \right)$, to check whether the DFT can capture the fundamental frequency. Finally, in Impulse Signal Test, we use f = [17, 0, 0,...] to prove that the DFT/IDFT works in all extremal conditions.
 
 In the end the results showed all tests passed.
 ```
