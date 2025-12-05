@@ -755,5 +755,6 @@ Divergence of F, we use the rule:
 $(∇ ⋅ F = \frac{∂F₁}{∂x}, \frac{∂F₂}{∂y}, \frac{∂F₃}{∂z​})$
 
 and last is Curl of F, we use the rule:
+$(∇×F = \frac{∂F₃}{∂y} - \frac{∂F₂}{∂z},\; \frac{∂F₁}{∂z} - \frac{∂F₃}{∂x},\; \frac{∂F₂}{∂x} - \frac{∂F₁}{∂y})$
 
 
