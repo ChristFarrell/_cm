@@ -748,7 +748,10 @@ Recovered: [17.0, -0.0, 0.0, 0.0, -0.0, -0.0]
 
 First is 1-VectorCalculusOperations.py, In this part we are asked to find gradient, divergence, and curl in a 3D vector field. We start by defining the vector field F (F(x, y, z) = (x²y, y²z, z²x)) and defining the scalar field F (f(x ,y ,z) = x²y + yz²).<br>
 
-Starting to search the Gradient of F, we use the rule $( \frac{∇f=(∂x​)}{∂f}, \frac{∇f=(∂y​​)}{∂f}, \frac{∇f=(∂z​)}{∂f} \right)$
+Starting to search the Gradient of F, we use the rule:
+$$
+( f = \tfrac{∂x}{∂f}, \tfrac{∂y}{∂f}, \tfrac{∂z}{∂f} )
+$$
 
 Divergence of F and last is Curl of F, we use the rule:
 
