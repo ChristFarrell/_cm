@@ -750,7 +750,7 @@ First is 1-VectorCalculusOperations.py, In this part we are asked to find gradie
 
 Starting to search the Gradient of F, we use the rule:
 $$
-( f = \tfrac{∂x}{∂f}, \tfrac{∂y}{∂f}, \tfrac{∂z}{∂f} )
+( f = \tfrac{1}{1}, \tfrac{2}{2}, \tfrac{2}{f} )
 $$
 
 Divergence of F and last is Curl of F, we use the rule:
