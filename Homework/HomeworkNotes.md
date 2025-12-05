@@ -749,6 +749,7 @@ Recovered: [17.0, -0.0, 0.0, 0.0, -0.0, -0.0]
 First is 1-VectorCalculusOperations.py, In this part we are asked to find gradient, divergence, and curl in a 3D vector field. We start by defining the vector field F (F(x, y, z) = (x²y, y²z, z²x)) and defining the scalar field F (f(x ,y ,z) = x²y + yz²).<br>
 
 Starting to search the Gradient of F, we use the rule:
+$
 \[ 
 \nabla f =
 \left(
@@ -757,6 +758,7 @@ Starting to search the Gradient of F, we use the rule:
 \frac{\partial f}{\partial z}
 \right)
 \]
+$
 
 After that for Divergence of F, we use the rule:
 $$
