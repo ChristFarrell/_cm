@@ -5,9 +5,7 @@ All of this project
 ## [GrowthDensity]()
 
 On first program, this program will find the growth and density from Indonesia. In general, this program will collect population per province and provincial area data. For the growth, we calculate using the rule:<br>
-$$
-Growth (\%) = \frac{P_{after} - P_{before}}{P_{before}} \times 100
-$$
+$$Growth (\%) = \frac{P_{after} - P_{before}}{P_{before}} \times 100$$
 
 Notes:
 - $P_{before}$  : The mean of last year.
