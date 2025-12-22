@@ -15,7 +15,10 @@ Notes:
 - $P_{after}$   : The mean of that year.
 
 For the density, we calculate using the rule:<br>
-$$Density = \frac{Population}{Area}$$
+
+$$
+Density = \frac{Population}{Area}
+$$
 
 As the result shown, there also showing the graph of growth and density.
 1. For the growth, for year 2020-2022 Kepualuan Riau is the highest province of growth, however in 2023 Maluku take place as the highest province of growth. For the lowest province of growth, sequentially from 2020-2021, 2021-2022, 2022-2023 are Jakarta, (Jakarta and Jawa Timur), and the last is Kepualaun Riau.
@@ -27,7 +30,10 @@ In conclution, this indicates that population growth rates do not always correla
 ## [Correlation]()
 
 On second program, this program identifies correlations to classify worker income based on different age groups. The list group including 15-24 years old worker, 25-54 years old worker, and 55+ years old worker. For the correlation, we calculate using the rule:<br>
-$$Cr = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$$
+
+$$
+Cr = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}
+$$
 
 Notes:
 - $x_i$     : Number of Variable 1.
@@ -57,3 +63,7 @@ From the result output, there are 4 conclusion from 2020-2023
     - One of the causes because economic growth that decreased (5.31% to 5.05%).
 
 ## [InferentialStatistics]()
+
+
+
+## [TheilIndex]()
