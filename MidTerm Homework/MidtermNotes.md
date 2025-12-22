@@ -91,8 +91,8 @@ T = \sum_{i=1}^{N} w_i \ln \left( \frac{y_i}{\mu} \right)
 $$
 
 Notes:
-- $T_i > 0$ : The region is above the national average.
-- $T_i < 0$ : The area is below the national average.
+- $T_i > 0$ : The province is above the national average.
+- $T_i < 0$ : The province is below the national average.
 - $w_i$     : Proportion of total national income contributed by province I.
 - $y_i$     : Average income of province i
 - $\mu$     : Population-weighted national average income.
