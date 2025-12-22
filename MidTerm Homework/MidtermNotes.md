@@ -67,3 +67,21 @@ From the result output, there are 4 conclusion from 2020-2023
 
 
 ## [TheilIndex]()
+
+
+
+
+From the result output, there are 4 conclusions from 2020-2023
+1. Income Statistics Summary (2020)
+    | Wilayah Tertinggi (Highest) | Wilayah Terendah (Lowest) |
+    | :---: | :---: |
+    | DKI Jakarta | Nusa Tenggara Timur |
+    | Banten | Jawa Timur |
+    | Jawa Barat | Jawa Tengah |
+
+    | Statistical Indicator | Calculation Value |
+    | :--- | :---: |
+    | Median Income | 1,545,050.00 |
+    | Theil Total | 0.02393 |
+    | Within Group | 0.00988 (41.3%) |
+    | Between Group | 0.01405 (58.7%) |
