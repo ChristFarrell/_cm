@@ -101,10 +101,8 @@ Notes:
 - $n_i$     : Total national population.
 
 For the ranking, it determines which provinces contribute the most positively and negatively. After that we using median as a dividing line to split the province into 2 group(low and high income). 
-1. Within-Group
-    The program measures how much inequality is caused by internal variation within each group.
-2. Between-Group
-    The program measures how much inequality is caused by the gap between the high and low groups
+1. Within-Group, the program measures how much inequality is caused by internal variation within each group.
+2. Between-Group, the program measures how much inequality is caused by the gap between the high and low groups
 
 From the result output, there are 4 conclusions from 2020-2023
 1. Income Statistics Summary 2020
