@@ -4,13 +4,14 @@ All of this project
 
 ## [GrowthDensity]()
 
-On first program, this program will find the growth and density from Indonesia. In general, this program will collect population per province and provincial area data. For the growth, we calculate using the rule:
+On first program, this program will find the growth and density from Indonesia. In general, this program will collect population per province and provincial area data. For the growth, we calculate using the rule:<br>
 $$Growth (\%) = \frac{P_{after} - P_{before}}{P_{before}} \times 100$$
+
 Notes:
 - $P_{before}$  : The mean of last year.
 - $P_{after}$   : The mean of that year.
 
-For the density, we calculate using the rule:
+For the density, we calculate using the rule:<br>
 $$Density = \frac{Population}{Area}$$
 
 As the result shown, there also showing the graph of growth and density.
@@ -22,8 +23,9 @@ In conclution, this indicates that population growth rates do not always correla
 
 ## [Correlation]()
 
-On second program, this program identifies correlations to classify worker income based on different age groups. The list group including 15-24 years old worker, 25-54 years old worker, and 55+ years old worker. For the correlation, we calculate using the rule:
+On second program, this program identifies correlations to classify worker income based on different age groups. The list group including 15-24 years old worker, 25-54 years old worker, and 55+ years old worker. For the correlation, we calculate using the rule:<br>
 $$Cr = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$$
+
 Notes:
 - $x_i$     : Number of Variable 1.
 - $\bar{x}$ : The mean of Variable 1 across all provinces.
