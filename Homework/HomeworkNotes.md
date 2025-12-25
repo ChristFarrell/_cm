@@ -1,5 +1,15 @@
 # NOTES
 
+Some part in homework 1-3 was written by myself, but starting homework 4-11, I asked AI and some references to help me write the homework for all of this project. Here is all of references:
+- [Github](https://github.com/ccc114a/py2cs/tree/master/01-%E7%A8%8B%E5%BC%8F%E8%88%87%E6%95%B8%E5%AD%B8)
+- HW 5  : https://chatgpt.com/share/68d622c0-dd24-8008-8a8e-9872bd6a900c
+- HW 6  : https://chatgpt.com/share/68dfbba8-cc10-8008-98a7-e18fa4c39097 and https://chatgpt.com/c/68df365a-45e0-8321-aa6e-31ed32094c75
+- HW 7  : https://chatgpt.com/share/691c636b-e110-8008-8a7d-0fd53c3d11e4
+- HW 8  : https://chatgpt.com/share/691c64e7-88a4-8008-99f1-b050f8571a48
+- HW 9  : https://chatgpt.com/share/693387bd-08fc-8008-aaed-330ac80f1cf5
+- HW 10 : https://chatgpt.com/share/69338848-7530-8008-9363-c6181659011a
+- HW 11 : https://chatgpt.com/share/6944ad10-dba0-8008-a590-158a2c0d27d3
+
 ## [Homework 1](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2001%20190925/Calculus.py)
 
 This task determine of derivative definition and the fundamental theorem of calculus.<br>
@@ -14,8 +24,8 @@ At the end, every calculation that python do was correct and always very close w
 ## [Homework 2](https://github.com/ChristFarrell/_cm/blob/main/Homework/Homework%2002%20190925/Algebra.py)
 
 This equation is a quadratic equation $ax² + bx + c = 0$, which is the variable of a, b, and c cannot be equal as 0. To find the solution of x, we can do it by the rules.<br>
-<br>
-$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$<br>
+
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
 At the end we using some of the example of x and get the result.
 
