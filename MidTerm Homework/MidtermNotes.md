@@ -1,14 +1,14 @@
 # NOTES
 
 All of this project was getting help by AI. From the data, I collect it from Central Statistics Agency of Indonesia. The data that I collect is on CSV format, and I'm simplified some part of collected data. Here is all of references:
-1 Data
+1. Data
    - [Growth and Density](https://www.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau-menurut-provinsi--2023.html?year=2021)
    - [Income 2020](https://www.bps.go.id/id/statistics-table/1/MjEwOCMx/rata-rata-pendapatan-bersih-berusaha-sendiri-menurut-provinsi-dan-kelompok-umur-2020.html)
    - [Income 2021](https://www.bps.go.id/id/statistics-table/1/MjE0MiMx/rata-rata-pendapatan-bersih-berusaha-sendiri-menurut-provinsi-dan-kelompok-umur--2021.html)
    - [Income 2022](https://www.bps.go.id/id/statistics-table/1/MjIwMSMx/rata-rata-pendapatan-bersih-berusaha-sendiri-menurut-provinsi-dan-kelompok-umur--2022.html)
    - [Income 2023](https://www.bps.go.id/id/statistics-table/1/MjI0MyMx/rata-rata-pendapatan-bersih-berusaha-sendiri-menurut-provinsi-dan-kelompok-umur--2023.html)
 
-2 AI
+2. AI
    - https://chatgpt.com/share/694cd2bd-2fd0-8008-805b-69ca89724495
    - https://chatgpt.com/share/694cd360-68fc-8008-ab68-c41be0215407
    
