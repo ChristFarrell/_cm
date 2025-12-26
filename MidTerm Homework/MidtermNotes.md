@@ -105,7 +105,6 @@ $$
    $$
 
 Note:
-
 - $\bar{d}$ : Income differences between years per province.
 - $d_i$ : The average of the difference between the two provinces i.
 - $Sd$ : Standard deviation of data.
