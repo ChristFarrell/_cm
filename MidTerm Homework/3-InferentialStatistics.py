@@ -1,24 +1,15 @@
 import numpy as np
 import pandas as pd
 from scipy.stats import ttest_rel
-from math import sqrt
 
 df = pd.read_csv("CSV/PopulationFull.csv")
 
-# 2a. FUNGSI Z-TEST
-def two_sample_ztest(y1, y2):
-    x1 = df[f'Rata-rata_{y1}']
-    x2 = df[f'Rata-rata_{y2}']
-    
-    mean1 = x1.mean()
-    mean2 = x2.mean()
-    
-    # pooled standard deviation
-    pooled_std = np.sqrt((x1.var(ddof=1) + x2.var(ddof=1)) / 2)
-    n = len(df)
-    
-    z = (mean2 - mean1) / (pooled_std / sqrt(n))
-    return mean1, mean2, z
+def get_means(y1, y2):
+    mean1 = df[f'Rata-rata_{y1}'].mean()
+    mean2 = df[f'Rata-rata_{y2}'].mean()
+    return mean1, mean2
+
+year_pairs = [(2020, 2021), (2021, 2022), (2022, 2023)]
 
 # 2b. FUNGSI T-TEST
 def do_ttest(col1, col2):
@@ -36,14 +27,12 @@ def print_significance(t, p):
     else:
         print(">> NOT SIGNIFCANT")
 
-print("\n=== Z-TEST RESULT ===")
+print("\n=== MEAN RESULT ===")
 for y1, y2 in year_pairs:
-    m1, m2, z = two_sample_ztest(y1, y2)
-    print(f"\n{y1}-{y2} Period")
-    print(f"First Mean  : {m1:.2f}")
-    print(f"Second Mean : {m2:.2f}")
-    print(f"Z-Score     : {z:.3f}")
-    print(f"Result      : {'SIGNIFICANT' if abs(z) > 1.96 else 'NOT SIGNIFCANT'}")
+    m1, m2 = get_means(y1, y2)
+    print(f"\n{y1}–{y2}")
+    print(f"Mean {y1}: {m1:,.2f}")
+    print(f"Mean {y2}: {m2:,.2f}")
 
 print("\n=== PAIRED T-TEST RESULT ===")
 for y1, y2 in year_pairs:

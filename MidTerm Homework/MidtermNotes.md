@@ -81,33 +81,7 @@ From the result output, there are 4 conclusion from 2020-2023
 
 ## [Inferential Statistics](https://github.com/ChristFarrell/_cm/blob/main/MidTerm%20Homework/3-InferentialStatistics.py)
 
-On third program, this program testing whether there is a change in the average population between years using the two sample Z-Tests and testing whether changes in income are significant in each ages group using the paired T-Tests. For the Z-Tests, we using the rule:
-
-$$
-z = \frac{\bar{x}_2 - \bar{x}_1}{\frac{Sp}{\sqrt{n}}}
-$$
-
-But, since we dont have σ value for Sp. But we will try to find the value using the income distribution approach between provinces.
-
-$$
-s_1 \& s_2 = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n - 1}}
-$$
-
-$$
-Sp = \sqrt{\frac{s_1^2 + s_2^2}{2}}
-$$
-
-Criteria: Signifikan changes happen if $|z| > 1.96$ (5%).
-Notes:
-
-- $\bar{x}_2$ : The mean of all province in part of Second Year
-- $\bar{x}_1$ : RThe mean of all province in part of First Year
-- $Sp$ : Pooled standard deviation.
-- $n$ : Total Of province.
-- $x_i$ : Income of province i.
-- $\bar{x}$ : The mean of all province.
-
-For the T-Tests, we using the rule:
+On third program, this program testing whether changes in income are significant in each ages group using the paired T-Tests. At first, we just collect the mean for data to supporting our t test data. For the T-Tests, we using the rule:
 
 $$
 t = \frac{\bar{d}}{\frac{Sd}{\sqrt{n}}}
@@ -140,13 +114,11 @@ Note:
 From the result output, there are 4 conclusions from 2020-2023
 
 1. Result 2020-2021
-   Z-Test Results
+   Mean
    | Metric | Value |
    | :--- | :---: |
    | First Mean (2020) | 1652920.59 |
    | Second Mean (2021) | 1476250.00 |
-   | Z-Score | -2.782 |
-   | **Result** | **SIGNIFICANT** |
 
    T-Test by Age Groups
    | Group of Ages | t-value | p-value |
@@ -156,13 +128,11 @@ From the result output, there are 4 conclusions from 2020-2023
    | 55+ | 2.8889 | 0.006780 |
 
 2. Result 2021-2022
-   Z-Test Results
+   Mean
    | Metric | Value |
    | :--- | :---: |
    | First Mean (2021) | 1,476,250.00 |
    | Second Mean (2022) | 1,739,000.00 |
-   | Z-Score | 3.602 |
-   | **Result** | **SIGNIFICANT** |
 
    T-Test by Age Groups
    | Group of Ages | t-value | p-value |
@@ -172,13 +142,11 @@ From the result output, there are 4 conclusions from 2020-2023
    | 55+ | -8.0420 | 0.000000 |
 
 3. Result 2022-2023
-   Z-Test Results
+   Mean
    | Metric | Value |
    | :--- | :---: |
    | First Mean (2022) | 1739000.00 |
    | Second Mean (2023) | 1782385.29 |
-   | Z-Score | 0.540 |
-   | **Result** | **NOT SIGNIFICANT** |
 
    T-Test by Age Groups
    | Group of Ages | t-value | p-value |
