@@ -884,7 +884,7 @@ For first part, the program will find the roots using the quadratic/cubic formul
             C_index += 1
 ```
 
-Second part, the program classifies which numbers are real and which numbers are imaginary. We know that a is the real number and b is the imaginer number. At first case, we use the condition when a is the real number and b = 0. Therefore:
+Second part, the program classifies which numbers are real and which numbers are imaginary. We know that a is the real number and b is the imaginer number. At first case, we use the condition when a is the real number and b = 0. Therefore:PY
 1. If single roots: 2, the solution         : $C₁e^{2x}$<br>
 
 When the same root appears repeatedly, each “repetition” produces an additional factor of $x^{m}$.

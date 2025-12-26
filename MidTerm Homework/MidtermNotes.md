@@ -100,6 +100,7 @@ $$
    $$
 
 3. Standard deviation of data ($s_d$):
+
    $$
    s_d = \sqrt{\frac{\sum (d_i - \bar{d})^2}{n - 1}}
    $$
