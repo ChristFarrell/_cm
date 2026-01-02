@@ -11,7 +11,11 @@ All of this project was getting help by AI. From the data, I collect it from Cen
 2. AI
    - https://chatgpt.com/share/694cd2bd-2fd0-8008-805b-69ca89724495
    - https://chatgpt.com/share/694cd360-68fc-8008-ab68-c41be0215407
-   
+
+3. Presentation: https://www.canva.com/design/DAG7Wmv06n4/W3eh9Cjp6vzrEMLejuKxZA/edit?utm_content=DAG7Wmv06n4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+After the evaluation, the t-test should be using sampling of some data, not the general data.
+
 ## [Growth and Density](https://github.com/ChristFarrell/_cm/blob/main/MidTerm%20Homework/1-GrowthDensity.py)
 
 On first program, this program will find the growth and density from Indonesia. In general, this program will collect population per province and provincial area data. For the growth, we calculate using the rule:<br>
